@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  avature_job_service:
+    container_name: avature_jobs
+    image: avaturejobs
+    environment:
+      - EXTERNAL_JOBS_URL=avature_external_jobs
+      - EXTERNAL_JOBS_PORT=8080
+    ports:
+      - 8000:80
+  avature_external_jobs:
+    container_name: avature_external_jobs
+    image: avatureexternaljobs
+    ports:
+      - 8081:8080
