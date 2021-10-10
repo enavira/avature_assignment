@@ -19,7 +19,6 @@ class MemDB():
             (salary_max is None or job.salary <= salary_max) and
             (country is None or job.country.lower() == country.lower())
         ]
-        print(self._models)
         return result
 
     def is_duplicated(self, model: Job):

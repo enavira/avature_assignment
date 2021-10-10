@@ -8,7 +8,6 @@ import urllib.parse
 
 app = FastAPI()
 db = MemDB()
-EXTERN_URL_PATH = "jobs"
 
 @app.post("/post_job", response_model=Job)
 def add_jobs(job: Job):
@@ -32,6 +31,7 @@ def get_jobs_external(name: Optional[str] = None,
                       country: Optional[str] = None):
     external_url = os.getenv("EXTERNAL_JOBS_URL", "localhost")
     external_port = os.getenv("EXTERNAL_JOBS_PORT", "8081")
+    EXTERN_URL_PATH = "jobs"
     url = f"http://{external_url}:{external_port}/{EXTERN_URL_PATH}"
     result = []
     params = {k: v for k, v in

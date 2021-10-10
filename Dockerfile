@@ -5,4 +5,4 @@ WORKDIR /app/src
 
 RUN pip3 install requests==2.26.0
 
-ENV APP_MODULE="main:app"
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
